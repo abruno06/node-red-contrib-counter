@@ -8,12 +8,13 @@ module.exports = function (RED) {
         node.count = 0 ; 
 
         node.on("input", function (msg, send, done) {
+            node.count= node.count+1;
             node.status({fill:"blue",shape:"dot",text: node.count+ " msg"})
             node.send(msg)
             done()
         })
     }
-    //most like the inject one except get rather than post
+    
     RED.nodes.registerType("counter", CounterNode);
 
 };
