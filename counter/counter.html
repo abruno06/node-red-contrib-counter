@@ -1,0 +1,54 @@
+<script type="text/html" data-template-name="counter">
+  <div class="form-row">
+    <label for="node-input-name"
+      ><i class="fa fa-tag"></i> <span data-i18n="counter.labels.name"></span
+    ></label>
+    <input
+      type="text"
+      id="node-input-name"
+      data-i18n="[placeholder]counter.labels.name"
+    />
+  </div>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType("counter", {
+    color: "#3FADB5",
+    category: "function",
+    defaults: {
+      name: {
+        value: "",
+      },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "swap.svg",
+    label: function () {
+      return this.name || "counter";
+    },
+    labelStyle: function () {
+      return this.name ? "node_label_italic" : "";
+    },
+  });
+</script>
+
+<script type="text/x-red" data-help-name="counter">
+      <p>This node is simply counting the msg passing throught for dev/debug purpose
+   </p>
+  <h3>Inputs</h3>
+  <ol class="node-ports">
+      <li>Standard input
+          <dl class="message-properties">
+            input
+          </dl>
+      </li>
+  </ol>
+  <h3>Outputs</h3>
+  <ol class="node-ports">
+      <li>Standard output
+          <dl class="message-properties">
+             The output message will be the same than the input message
+          </dl>
+      </li>
+  </ol>
+</script>
