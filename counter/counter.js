@@ -12,6 +12,12 @@ module.exports = function (RED) {
             node.status({fill:"blue",shape:"dot",text: node.count+ " msg"})
             node.send(msg)
             done()
+        });
+
+        node.on("close", function (_remove, done) {
+            node.count= 0 ;
+            node.status({fill:"green",shape:"dot",text: node.count+ " msg"})
+            done();
         })
     }
     
